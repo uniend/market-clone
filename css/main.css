@@ -1,0 +1,49 @@
+main {
+  padding: 30px 10px;
+}
+
+.item-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+/* 
+자손선택자 */
+.item-list img {
+  width: 130px;
+  height: 130px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.item-list__info {
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.item-list__info__meta {
+  font-size: smaller;
+  color: rgba(0, 0, 0, 0.3);
+  margin: 15px 0;
+}
+
+.item-list__info__palce {
+  font-weight: bold;
+}
+
+.write {
+  background-color: #fe6f0f;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 10px;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
