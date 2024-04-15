@@ -12,7 +12,7 @@ function calcTime(timestemp) {
   if (hour > 0) return `${hour}시간 전 `;
   else if (min > 0) return `${min}분전`;
   else if (second > 0) return `${second}초전 `;
-  else "방금 전 ";
+  else return "방금 전 ";
 }
 
 const rederData = (data) => {
