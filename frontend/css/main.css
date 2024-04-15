@@ -1,10 +1,10 @@
 main {
-  padding: 30px 10px;
+  padding: 30px 10px 100px 10px ;
 }
 
 .item-list {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px 0;
@@ -12,8 +12,8 @@ main {
 /* 
 자손선택자 */
 .item-list img {
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 200px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin-right: 10px;
@@ -46,4 +46,5 @@ main {
   bottom: 80px;
   right: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: 1000;
 }
