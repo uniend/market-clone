@@ -92,6 +92,30 @@ async def get_image(item_id):
                               """).fetchone()[0]
     return Response(content=bytes.fromhex(image_bytes), media_type='image/*')
   
+  
+  #중복아이디검사로직 필요!! 
+  
+  
+  
+  
+  
+  
+@app.post('/siginup')
+def siginUp(
+              userid:Annotated[str, Form()],
+              userpsw:Annotated[str, Form()],
+              name: Annotated[str, Form()],
+              email:Annotated[str,Form()],
+            ):
+  
+    cur = con.cursor()
+    row = cur.execute(f'''
+                        INSERT INTO users(id,name,email,password)
+                        VALUES('{userid}','{name}','{email}', '{userpsw}')
+                      ''')
+    con.commit()
+    print(userid, userpsw, name, email)
+    return '200'
 
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
