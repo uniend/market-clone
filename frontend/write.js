@@ -11,9 +11,15 @@ async function handleSunmitForm(e) {
   const body = new FormData(form);
   body.append('insertAt', new Date().getTime());
   e.preventDefault();
+
+  const accessToken = localStorage.getItem('token');
   try{
     const res = await fetch('/items',{
-      method: 'POST',
+      method: 'post',
+      headers:{
+        Authorization: `Bearer ${accessToken}`
+      },
+      
       // 폼데이터만 보낼떄 
       // body: new FormData(form),
       // 폼데이터 외 데이터도 함꼐 보낼때 

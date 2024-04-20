@@ -53,8 +53,22 @@ const rederData = (data) => {
   });
 };
 
+
+
 const fetchList = async () => {
-  const res = await fetch("/items");
+  const accessToken = localStorage.getItem('token');
+  const res = await fetch("/items",{
+    method: 'get',
+    headers : {
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
+
+  if(res.status === 401){
+    alert('로그인이 필요합니다.');
+    window.location.pathname = '/login.html'
+
+  }
   const data = await res.json();
   rederData(data);
 };
