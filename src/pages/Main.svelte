@@ -1,26 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>당근마켓</title>
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/footer.css" />
-  </head>
-  <body>
-    <!-- <div class="media-msg">화면 사이즈를 줄여주세요</div> -->
+
+<script>
+
+  let hour = new Date().getHours;
+  let min = new Date().getMinutes;
+
+
+</script>
+
+
+
+
+
+
     <header>
       <div class="info-bar">
-        <div class="info-bar__time">20:55</div>
+        <div class="info-bar__time">{hour} : {min}</div>
         <div class="info-bar__icons">
           <img src="asset/cart-bar.svg" alt="cart-bar" />
           <img src="asset/wifi.svg" alt="wifi" />
@@ -120,11 +114,6 @@
       </div>
     </footer>
 
-    <a href="#/write"  class="write">+ 글쓰기</a>
+    <a href="#/Write"  class="write">+ 글쓰기</a>
 
     <div class="media-msg">화면 사이즈를 줄여주세요</div>
-    <!-- 다 갈리려면 아래로, 위에를 다 읽고나서 실행되는거니깐  -->
-
-    <script src="index.js"></script>
-  </body>
-</html>

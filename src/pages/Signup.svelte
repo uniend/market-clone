@@ -1,0 +1,57 @@
+<div>회원가입입</div>
+<form id="siginup-form" action="/siginup" method="POST">
+  <div class="useridDiv">
+    <label for="userid">아이디 </label>
+    <input
+      type="text"
+      placeholder="아이디를 입력해주세요"
+      name="userid"
+      id="userid"
+      required
+    />
+  </div>
+  <div class="userpswDiv">
+    <label for="userpsw">비밀번호</label>
+    <input
+      type="password"
+      placeholder="비밀번호를 입력해주세요"
+      name="userpsw"
+      id="userpsw"
+      required
+    />
+  </div>
+  <div class="userpswDiv">
+    <label for="userpsw2">비밀번호 확인</label>
+    <input
+      type="password"
+      placeholder="비밀번호를 입력해주세요"
+      name="userpsw2"
+      id="userpsw2"
+      required
+    />
+  </div>
+  <div class="userpswDiv">
+    <label for="email">이메일</label>
+    <input
+      type="email"
+      placeholder="이메일 입력해주세요"
+      name="email"
+      id="email"
+      required
+    />
+  </div>
+  <div class="userpswDiv">
+    <label for="name">이름</label>
+    <input
+      type="text"
+      placeholder="이름을 입력해주세요"
+      name="name"
+      id="name"
+      required
+    />
+  </div>
+  <div>
+    <button type="submit">회원가입</button>
+  </div>
+</form>
+<div class="info"></div>
