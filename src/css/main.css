@@ -43,7 +43,7 @@ main {
   border-radius: 25px;
   font-size: 10px;
   position: fixed;
-  bottom: 80px;
+  bottom: 120px;
   right: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 1000;

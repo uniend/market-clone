@@ -1,8 +1,38 @@
 
 <script>
+  import { onMount } from "svelte";
+  import Footer from "../components/Footer.svelte";
+  import { getDatabase, ref, onValue } from "firebase/database";
 
-  let hour = new Date().getHours;
-  let min = new Date().getMinutes;
+  let hour = new Date().getHours();
+  let min = new Date().getMinutes();
+
+  function calcTime(timestemp) {
+  const nowTime = new Date().getTime() - 9 * 60 * 60 * 1000;
+  const time = new Date(nowTime - timestemp);
+  const hour = time.getHours();
+  const min = time.getMinutes();
+  const second = time.getSeconds();
+
+  if (hour > 0) return `${hour}시간 전 `;
+  else if (min > 0) return `${min}분전`;
+  else if (second > 0) return `${second}초전 `;
+  else return "방금 전 ";
+}
+
+  $: items  = []
+
+  
+  const db = getDatabase();
+  const starCountRef = ref(db, 'items/' );
+
+  onMount(()=>{
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      items = Object.values(data).reverse();
+    });
+  });
+
 
 
 </script>
@@ -14,7 +44,7 @@
 
     <header>
       <div class="info-bar">
-        <div class="info-bar__time">{hour} : {min}</div>
+        <div class="info-bar__time">  {hour} : {min}</div>
         <div class="info-bar__icons">
           <img src="asset/cart-bar.svg" alt="cart-bar" />
           <img src="asset/wifi.svg" alt="wifi" />
@@ -39,6 +69,17 @@
     </header>
 
     <main>
+      {#each items as item}
+        <div class="item-list">
+          <img src={item.urlImg} alt="이미지" class="item-list__img">
+          <div class="item-list__info">
+            <div class="item-list__info__title">{item.title}</div>
+            <div class="item-list__info__meta">{item.place} {calcTime(item.insertAt)}</div>
+            <div class="item-list__info__palce">{item.price}</div>
+          </div>
+        </div>
+      {/each} 
+
       <!-- <div class="item-list">
         <img src="asset/img.svg" alt="" class="item-list__img" />
         <div class="item-list__info">
@@ -89,30 +130,7 @@
       </div> -->
     </main>
 
-    <footer>
-      <div class="footer--container">
-        <div class="footer--icons">
-          <img src="asset/home.svg" alt="home" />
-          <span>홈</span>
-        </div>
-        <div class="footer--icons">
-          <img src="asset/docu.svg" alt="docu" />
-          <span>동네생활</span>
-        </div>
-        <div class="footer--icons">
-          <img src="asset/loca.svg" alt="loca" />
-          <span>내 근처</span>
-        </div>
-        <div class="footer--icons">
-          <img src="asset/chat.svg" alt="chat" />
-          <span>채팅</span>
-        </div>
-        <div class="footer--icons">
-          <img src="asset/user.svg" alt="user" />
-          <span>나의 당근</span>
-        </div>
-      </div>
-    </footer>
+    <Footer location = 'home'/>
 
     <a href="#/Write"  class="write">+ 글쓰기</a>
 
